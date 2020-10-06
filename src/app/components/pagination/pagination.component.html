@@ -1,0 +1,31 @@
+<div class="w-full flex items-center justify-center text-primary">
+  <fa-icon
+    (click)="goToPage(currentPage - 1)"
+    [icon]="faArrowLeft"
+    [ngClass]="{
+      'cursor-default': isLastPage,
+      'cursor-pointer': !isLastPage
+    }"
+  ></fa-icon>
+
+  <span
+    *ngFor="let page of pages"
+    (click)="goToPage(page)"
+    class="px-4 py-2 select-none text-tiny border-b"
+    [ngClass]="{
+      'border-black cursor-default': page === currentPage,
+      'border-white cursor-pointer': page !== currentPage
+    }"
+  >
+    {{ page }}
+  </span>
+
+  <fa-icon
+    (click)="goToPage(currentPage + 1)"
+    [icon]="faArrowRight"
+    [ngClass]="{
+      'cursor-default': isLastPage,
+      'cursor-pointer': !isLastPage
+    }"
+  ></fa-icon>
+</div>

@@ -1,0 +1,29 @@
+<div class="flex justify-center">
+  <app-input-filter
+    class="flex mr-4"
+    label="Title:"
+    placeholder="Title..."
+    (changeInput)="changeInput('title', $event)"
+  ></app-input-filter>
+  <app-input-filter
+    class="flex mr-4"
+    label="Description:"
+    placeholder="Description..."
+    (changeInput)="changeInput('description', $event)"
+  >
+  </app-input-filter>
+  <app-input-filter
+    class="flex mr-4"
+    label="Price:"
+    placeholder="Price..."
+    (changeInput)="changeInput('price', $event)"
+  >
+  </app-input-filter>
+  <app-input-filter
+    class="flex"
+    label="Email:"
+    placeholder="Email..."
+    (changeInput)="changeInput('email', $event)"
+  >
+  </app-input-filter>
+</div>

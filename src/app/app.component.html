@@ -1,0 +1,31 @@
+<div class="w-full flex p-4">
+  <div class="w-1/3"></div>
+  <div class="w-1/3 text-center"><h1>Products</h1></div>
+  <div class="w-1/3 text-right">
+    <button
+      class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
+      (click)="openFavoriteDialog()"
+    >
+      Favorite
+    </button>
+  </div>
+</div>
+
+<div class="">
+  <app-filters (changeFilter)="changeFilter($event)"></app-filters>
+</div>
+
+<div *ngIf="listProducts$ | async as listProducts" class="p-4">
+  <app-pagination
+    [skip]="skip$ | async"
+    [limit]="limitList"
+    [total]="listProducts.total"
+    (clickPage)="changePage($event)"
+  ></app-pagination>
+  <app-table
+    [columns]="columns"
+    [rows]="listProducts.products"
+    (clickedRow)="clickedRow($event)"
+    (clickColumn)="onClickColumn($event)"
+  ></app-table>
+</div>

@@ -1,0 +1,17 @@
+<div class="w-full text-center">Favorite products</div>
+
+<div class="flex flex-row w-full flex-wrap">
+  <div *ngFor="let product of favoriteProducts$ | async" class="w-1/3">
+    <div class="w-full flex my-2 px-2 justify-between">
+      <span class=""> Title: {{ product.title }} </span>
+      <fa-icon
+        [icon]="faTrash"
+        class="cursor-pointer hover:text-red-500"
+        (click)="deleteFavoriteItem(product)"
+      ></fa-icon>
+    </div>
+    <div class="w-full flex justify-center">
+      <img [src]="product.image" />
+    </div>
+  </div>
+</div>
